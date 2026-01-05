@@ -8,10 +8,8 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "GlimmerWorksBuilder",
-	Short: "A build tool developed for GlimmerWorks.",
-	Long: `GlimmerWorksBuilder is a build tool developed for GlimmerWorks. 
-GlimmerWorksBuilder can pull the latest git repository into GlimmerWorks. 
-GlimmerWorksBuilder can also install/uninstall so libraries into Android projects.`,
+	Short: "Build and manage dependencies for GlimmerWorks projects",
+	Long:  `Build and manage dependencies for GlimmerWorks projects`,
 }
 
 func Execute() {
