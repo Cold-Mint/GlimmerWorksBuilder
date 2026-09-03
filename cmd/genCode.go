@@ -383,7 +383,7 @@ func generateCPPHeaderFile(outPutFilePath string, fieldMetas []meta.FieldMeta, i
 				bodyContent.WriteString(fmt.Sprintf("            r.%s = toml::find<%s>(v, \"%s\");\n", fm.Name, fm.Type, snakeName))
 			} else {
 				val := fm.Default
-				if fm.Type == "std::string" {
+				if fm.Type == "std::string" && !strings.HasPrefix(val, "\"") && !strings.HasSuffix(val, "\"") {
 					val = "\"" + val + "\""
 				}
 				bodyContent.WriteString(fmt.Sprintf("            r.%s = toml::find_or<%s>(v, \"%s\", %s);\n", fm.Name, fm.Type, snakeName, val))
